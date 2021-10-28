@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,8 +14,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement("DELETE FROM products");
+        DB::statement("ALTER TABLE products AUTO_INCREMENT=1");
+        DB::statement("DELETE FROM categories");
+        DB::statement("ALTER TABLE categories AUTO_INCREMENT=1");
+
         // \App\Models\User::factory(10)->create();
         \App\Models\Category::factory(6)->create();
         \App\Models\Product::factory(22)->create();
+
+
     }
 }
