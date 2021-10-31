@@ -11,12 +11,15 @@ use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class ShopComponent extends Component
+class SearchComponent extends Component
 {
     use WithPagination;
 
     public $sorting = "default";
     public $pageSize = 6;
+    public $search;
+    public $product_cat;
+    public $product_cat_id;
 
     protected $paginationTheme = 'bootstrap';
 
@@ -25,6 +28,7 @@ class ShopComponent extends Component
     {
         $this->sorting = "default";
         $this->pageSize = 6;
+        $this->fill(request()->only('search','product_cat','product_cat_id'));
 
     }
 
@@ -41,20 +45,20 @@ class ShopComponent extends Component
     {
 
         if ($this->sorting == 'date') {
-            $products = Product::orderBy('created_at', 'DESC')->paginate($this->pageSize);
+            $products = Product::where('name','like','%'.$this->search.'%')->where('category_id','like','%'.$this->product_cat_id.'%')->orderBy('created_at', 'DESC')->paginate($this->pageSize);
         } else if ($this->sorting == "price") {
-            $products = Product::orderBy('regular_price', 'ASC')->paginate($this->pageSize);
+            $products = Product::where('name','like','%'.$this->search.'%')->where('category_id','like','%'.$this->product_cat_id.'%')->orderBy('regular_price', 'ASC')->paginate($this->pageSize);
         } else if ($this->sorting == "price_desc") {
-            $products = Product::orderBy('regular_price', 'DESC')->paginate($this->pageSize);
+            $products = Product::where('name','like','%'.$this->search.'%')->where('category_id','like','%'.$this->product_cat_id.'%')->orderBy('regular_price', 'DESC')->paginate($this->pageSize);
         } else {
-            $products = Product::paginate(6);
+            $products = Product::where('name','like','%'.$this->search.'%')->where('category_id','like','%'.$this->product_cat_id.'%')->paginate(6);
         }
 
 
         $categories = Category::all();
 
 
-        return view('livewire.shop-component' ,
+        return view('livewire.search-component' ,
             [
                 'products' => $products,
                 'categories' => $categories
