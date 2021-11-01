@@ -69,29 +69,6 @@
                                     </li>
                                 </ul>
                             </li>
-
-                            <li class="menu-item menu-item-has-children parent">
-                                <a title="My Account" href="#">My Account (Admin)<i class="fa fa-angle-down"
-                                                                                    aria-hidden="true"></i></a>
-                                <ul class="submenu curency">
-                                    <li class="menu-item"><a href="#">Products</a></li>
-                                    <li class="menu-item"><a href="#">Categories</a></li>
-                                    <li class="menu-item"><a href="#">Coupons</a></li>
-                                    <li class="menu-item"><a href="#">Orders</a></li>
-                                    <li class="menu-item"><a href="#">Customers</a></li>
-                                    <li class="menu-item"><a title="Logout" href="#">Logout</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item menu-item-has-children parent">
-                                <a title="My Account" href="#">My Account (User)<i class="fa fa-angle-down"
-                                                                                   aria-hidden="true"></i></a>
-                                <ul class="submenu curency">
-                                    <li class="menu-item"><a href="#">Orders</a></li>
-                                    <li class="menu-item"><a href="#">Address</a></li>
-                                    <li class="menu-item"><a href="#">Account Details</a></li>
-                                    <li class="menu-item"><a title="Logout" href="#">Logout</a></li>
-                                </ul>
-                            </li>
                             @if(Route::has('login'))
                                 @auth
                                     @if(Auth::user()->utype ==='ADM')
@@ -103,6 +80,12 @@
                                                 <li class="menu-item">
                                                     <a title="Dashboard"
                                                        href="{{route('admin.dashboard')}}">Dashboard</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="{{route('admin.categories')}}" title="Categories">Categories</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="{{route('admin.products')}}" title="Products">Products</a>
                                                 </li>
                                                 <li class="menu-item">
                                                     <a href="{{route('logout')}}"
