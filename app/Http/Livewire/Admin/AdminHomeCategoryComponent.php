@@ -14,13 +14,13 @@ class AdminHomeCategoryComponent extends Component
 
     public function mount(){
         $category=HomeCategory::find(1);
-        $this->selected_categories=explode(',',$category->sel_categories);
+        $this->selected_categories=explode(',',$category->sel_category);
         $this->numberofProducts=$category->no_of_products;
     }
 
     public function updateHomeCategory(){
         $category=HomeCategory::find(1);
-        $category->sel_categories=implode(',',$this->selected_categories);
+        $category->sel_category=implode(',',$this->selected_categories);
         $category->no_of_products=$this->numberofProducts;
         $category->save();
         session()->flash('message','HomeCategory has been updated successfully!');
