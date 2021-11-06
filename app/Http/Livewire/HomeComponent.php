@@ -19,14 +19,10 @@ class HomeComponent extends Component
         $category = HomeCategory::find(1);
         $cats = explode(',', $category->sel_category);
         $categories = Category::whereIn('id', $cats)->get();
+        $sproducts=Product::where('sale_price','>',0)->inRandom()->get()->take(8);
         $no_of_products = $category->no_of_products;
 
 
-        return view('livewire.home-component', ['sliders' => $sliders, 'lproducts' => $lproducts, 'categories' => $categories, 'no_of_products' => $no_of_products])->layout('layouts.base');
-    }
-
-    public function mount()
-    {
-        $this->categoryId =Category::find(1)->id;
+        return view('livewire.home-component', ['sliders' => $sliders, 'lproducts' => $lproducts, 'categories' => $categories, 'no_of_products' => $no_of_products,'no_of_products'=>$no_of_products])->layout('layouts.base');
     }
 }
