@@ -6,20 +6,27 @@ use App\Models\Category;
 use App\Models\HomeCategory;
 use App\Models\HomeSlider;
 use App\Models\Product;
+use JetBrains\PhpStorm\NoReturn;
 use Livewire\Component;
 
 class HomeComponent extends Component
 {
 
-    public function render()
+    #[NoReturn] public function render()
     {
-        $sliders=HomeSlider::where('status',1)->get();
-        $lproducts=Product::orderBy('created_at','DESC')->get()->take(8);
-        $category=HomeCategory::find(1);
-        $cats=explode(',',$category->sel_category);
-        $categories=Category::whereIn('id',$cats)->get();
-        $no_of_products=$category->no_of_products;
+        $sliders = HomeSlider::where('status', 1)->get();
+        $lproducts = Product::orderBy('created_at', 'DESC')->get()->take(8);
+        $category = HomeCategory::find(1);
+        $cats = explode(',', $category->sel_category);
+        $categories = Category::whereIn('id', $cats)->get();
+        $no_of_products = $category->no_of_products;
 
-        return view('livewire.home-component',['sliders'=>$sliders,'lproducts'=>$lproducts,'categories'=>$categories,'no_of_products'=>$no_of_products])->layout('layouts.base');
+
+        return view('livewire.home-component', ['sliders' => $sliders, 'lproducts' => $lproducts, 'categories' => $categories, 'no_of_products' => $no_of_products])->layout('layouts.base');
+    }
+
+    public function mount()
+    {
+        $this->categoryId =Category::find(1)->id;
     }
 }
