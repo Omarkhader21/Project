@@ -50,6 +50,8 @@ Route::get('/product-category/{category_slug}', CategoryComponent::class)->name(
 
 Route::get('/search', SearchComponent::class)->name('product.search');
 
+Route::get('/wishlist',\App\Http\Livewire\WishlistComponent::class)->name('product.wishlist');
+
 
 // User Auth
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){
