@@ -18,6 +18,9 @@ class ShopComponent extends Component
     public $sorting = "default";
     public $pageSize = 6;
 
+    public $min_price;
+    public $max_price;
+
     protected $paginationTheme = 'bootstrap';
 
 
@@ -26,6 +29,8 @@ class ShopComponent extends Component
         $this->sorting = "default";
         $this->pageSize = 6;
 
+        $this->min_price=1;
+        $this->max_price=1000;
     }
 
     public function store($product_id, $product_name, $product_price)
@@ -41,13 +46,13 @@ class ShopComponent extends Component
     {
 
         if ($this->sorting == 'date') {
-            $products = Product::orderBy('created_at', 'DESC')->paginate($this->pageSize);
+            $products = Product::whereBetween('regular_price',[$this->min_price,$this->max_price])->orderBy('created_at', 'DESC')->paginate($this->pageSize);
         } else if ($this->sorting == "price") {
-            $products = Product::orderBy('regular_price', 'ASC')->paginate($this->pageSize);
+            $products = Product::whereBetween('regular_price',[$this->min_price,$this->max_price])->orderBy('regular_price', 'ASC')->paginate($this->pageSize);
         } else if ($this->sorting == "price_desc") {
-            $products = Product::orderBy('regular_price', 'DESC')->paginate($this->pageSize);
+            $products =whereBetween('regular_price',[$this->min_price,$this->max_price])->Product::orderBy('regular_price', 'DESC')->paginate($this->pageSize);
         } else {
-            $products = Product::paginate(6);
+            $products = Product::whereBetween('regular_price',[$this->min_price,$this->max_price])->paginate(6);
         }
 
 
