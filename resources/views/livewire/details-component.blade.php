@@ -73,7 +73,7 @@
                             @if($product->sale_price>0 && $sale->status === 1 && $sale->sale_date > \Carbon\Carbon::now())
                                 <a href="#" class="btn add-to-cart" wire:click.pervent="store({{$product->id}},'{{$product->name}}',{{$product->sale_price}})">Add to Cart</a>
                             @else
-                                <a href="#" class="btn add-to-cart" wire:click.pervent="store({{$product->id}},'{{$product->name}}',{{$product->sale_price}})">Add to Cart</a>
+                                <a href="#" class="btn add-to-cart" wire:click.pervent="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">Add to Cart</a>
                             @endif
                             <div class="wrap-btn">
                                 <a href="#" class="btn btn-compare">Add Compare</a>

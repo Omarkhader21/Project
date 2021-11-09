@@ -76,6 +76,9 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function (){
 
     Route::get('/admin/home-categories', AdminHomeCategoryComponent::class)->name('admin.homecategories');
     Route::get('/admin/sale',\App\Http\Livewire\Admin\AdminSaleComponent::class)->name('admin.sale');
+    Route::get('/admin/coupons',\App\Http\Livewire\Admin\AdminCouponsComponent::class)->name('admin.coupons');
+    Route::get('/admin/coupons/add',\App\Http\Livewire\Admin\AdminAddCouponComponent::class)->name('admin.addcoupon');
+Route::get('/admin/coupons/edit/{coupon_id}',\App\Http\Livewire\Admin\AdminEditCouponComponent::class)->name('admin.editcoupon');
 
 
 
