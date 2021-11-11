@@ -40,7 +40,7 @@ Route::get('/shop', ShopComponent::class);
 
 Route::get('/cart', CartComponent::class)->name('product.cart');
 
-Route::get('/checkout', CheckOutComponent::class);
+Route::get('/checkout', CheckOutComponent::class)->name('checkout');
 
 Route::get('/contactus', ContactUs::class);
 
