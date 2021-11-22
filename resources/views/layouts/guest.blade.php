@@ -29,8 +29,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/pc.png')}}">
     <link
         href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext"
         rel="stylesheet">
@@ -44,7 +43,10 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/chosen.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/color-01.css')}}">
-    @livewireStyles
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/flexslider.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" integrity="sha512-aEe/ZxePawj0+G2R+AaIxgrQuKT68I28qh+wgLrcAJOz3rxCP+TwrK5SPN+E5I+1IQjNtcfvb96HDagwrKRdBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css" integrity="sha512-KRrxEp/6rgIme11XXeYvYRYY/x6XPGwk0RsIC6PyMRc072vj2tcjBzFmn939xzjeDhj0aDO7TDMd7Rbz3OEuBQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="home-page home-01 ">
 
@@ -67,7 +69,7 @@
                         <ul>
                             <li class="menu-item">
                                 <a title="Hotline: (+123) 456 789" href="#"><span
-                                        class="icon label-before fa fa-mobile"></span>Hotline: (+123) 456 789</a>
+                                        class="icon label-before fa fa-mobile"></span>Hotline: (+962) 775966466</a>
                             </li>
                         </ul>
                     </div>
@@ -93,29 +95,6 @@
                                     </li>
                                 </ul>
                             </li>
-
-                            <li class="menu-item menu-item-has-children parent">
-                                <a title="My Account" href="#">My Account (Admin)<i class="fa fa-angle-down"
-                                                                                    aria-hidden="true"></i></a>
-                                <ul class="submenu curency">
-                                    <li class="menu-item"><a href="#">Products</a></li>
-                                    <li class="menu-item"><a href="#">Categories</a></li>
-                                    <li class="menu-item"><a href="#">Coupons</a></li>
-                                    <li class="menu-item"><a href="#">Orders</a></li>
-                                    <li class="menu-item"><a href="#">Customers</a></li>
-                                    <li class="menu-item"><a title="Logout" href="#">Logout</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item menu-item-has-children parent">
-                                <a title="My Account" href="#">My Account (User)<i class="fa fa-angle-down"
-                                                                                   aria-hidden="true"></i></a>
-                                <ul class="submenu curency">
-                                    <li class="menu-item"><a href="#">Orders</a></li>
-                                    <li class="menu-item"><a href="#">Address</a></li>
-                                    <li class="menu-item"><a href="#">Account Details</a></li>
-                                    <li class="menu-item"><a title="Logout" href="#">Logout</a></li>
-                                </ul>
-                            </li>
                             @if(Route::has('login'))
                                 @auth
                                     @if(Auth::user()->utype ==='ADM')
@@ -127,6 +106,24 @@
                                                 <li class="menu-item">
                                                     <a title="Dashboard"
                                                        href="{{route('admin.dashboard')}}">Dashboard</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="{{route('admin.categories')}}" title="Categories">Categories</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="{{route('admin.products')}}" title="Products">Products</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="{{route('admin.homeslider')}}" title="Manage Home Slider">Manage Home Slider</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="{{route('admin.homecategories')}}" title="Manage Home Categories">Manage Home Categories</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="{{route('admin.sale')}}" title="sale settings">Sale settings</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="{{route('admin.coupons')}}" title="All coupon">All Coupons</a>
                                                 </li>
                                                 <li class="menu-item">
                                                     <a href="{{route('logout')}}"
@@ -174,62 +171,16 @@
                 <div class="mid-section main-info-area">
 
                     <div class="wrap-logo-top left-section">
-                        <a href="index.html" class="link-to-home"><img src="{{asset('assets/images/logo-top-1.png')}}"
-                                                                       alt="mercado"></a>
+                        <a href="/" class="link-to-home"><img src="{{asset('assets/images/pc.png')}}" width="100px" height="100px"
+                                                              alt="mercado"></a>
                     </div>
 
-                    <div class="wrap-search center-section">
-                        <div class="wrap-search-form">
-                            <form action="#" id="form-search-top" name="form-search-top">
-                                <input type="text" name="search" value="" placeholder="Search here...">
-                                <button form="form-search-top" type="button"><i class="fa fa-search"
-                                                                                aria-hidden="true"></i></button>
-                                <div class="wrap-list-cate">
-                                    <input type="hidden" name="product-cate" value="0" id="product-cate">
-                                    <a href="#" class="link-control">All Category</a>
-                                    <ul class="list-cate">
-                                        <li class="level-0">All Category</li>
-                                        <li class="level-1">-Electronics</li>
-                                        <li class="level-2">Batteries & Chargens</li>
-                                        <li class="level-2">Headphone & Headsets</li>
-                                        <li class="level-2">Mp3 Player & Acessories</li>
-                                        <li class="level-1">-Smartphone & Table</li>
-                                        <li class="level-2">Batteries & Chargens</li>
-                                        <li class="level-2">Mp3 Player & Headphones</li>
-                                        <li class="level-2">Table & Accessories</li>
-                                        <li class="level-1">-Electronics</li>
-                                        <li class="level-2">Batteries & Chargens</li>
-                                        <li class="level-2">Headphone & Headsets</li>
-                                        <li class="level-2">Mp3 Player & Acessories</li>
-                                        <li class="level-1">-Smartphone & Table</li>
-                                        <li class="level-2">Batteries & Chargens</li>
-                                        <li class="level-2">Mp3 Player & Headphones</li>
-                                        <li class="level-2">Table & Accessories</li>
-                                    </ul>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                    @livewire('header-search-component')
 
                     <div class="wrap-icon right-section">
-                        <div class="wrap-icon-section wishlist">
-                            <a href="#" class="link-direction">
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                <div class="left-info">
-                                    <span class="index">0 item</span>
-                                    <span class="title">Wishlist</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="wrap-icon-section minicart">
-                            <a href="#" class="link-direction">
-                                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                <div class="left-info">
-                                    <span class="index">4 items</span>
-                                    <span class="title">CART</span>
-                                </div>
-                            </a>
-                        </div>
+                        @livewire('wishlist-count-component')
+
+                        @livewire('cart-count-component')
                         <div class="wrap-icon-section show-up-after-1024">
                             <a href="#" class="mobile-navigation">
                                 <span></span>
@@ -268,7 +219,7 @@
                                                                                     aria-hidden="true"></i></a>
                             </li>
                             <li class="menu-item">
-                                <a href="about-us.html" class="link-term mercado-item-title">About Us</a>
+                                <a href="/aboutus" class="link-term mercado-item-title">About Us</a>
                             </li>
                             <li class="menu-item">
                                 <a href="/shop" class="link-term mercado-item-title">Shop</a>
@@ -351,12 +302,11 @@
                                     <ul>
                                         <li>
                                             <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            <p class="contact-txt">45 Grand Central Terminal New York,NY 1017 United
-                                                State USA</p>
+                                            <p class="contact-txt">Jordan / Amman </p>
                                         </li>
                                         <li>
                                             <i class="fa fa-phone" aria-hidden="true"></i>
-                                            <p class="contact-txt">(+123) 456 789 - (+123) 666 888</p>
+                                            <p class="contact-txt">(+962) 775966466</p>
                                         </li>
                                         <li>
                                             <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -375,7 +325,7 @@
                             <div class="item-content">
                                 <div class="wrap-hotline-footer">
                                     <span class="desc">Call Us toll Free</span>
-                                    <b class="phone-number">(+123) 456 789 - (+123) 666 888</b>
+                                    <b class="phone-number">(+962) 775966466</b>
                                 </div>
                             </div>
                         </div>
@@ -402,12 +352,12 @@
                                 <div class="item-content">
                                     <div class="wrap-vertical-nav">
                                         <ul>
-                                            <li class="menu-item"><a href="#" class="link-term">My Account</a></li>
+                                            <li class="menu-item"><a href="{{route('login')}}" class="link-term">My Account</a></li>
                                             <li class="menu-item"><a href="#" class="link-term">Brands</a></li>
                                             <li class="menu-item"><a href="#" class="link-term">Gift Certificates</a>
                                             </li>
                                             <li class="menu-item"><a href="#" class="link-term">Affiliates</a></li>
-                                            <li class="menu-item"><a href="#" class="link-term">Wish list</a></li>
+                                            <li class="menu-item"><a href="{{route('product.wishlist')}}" class="link-term">Wish list</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -417,7 +367,7 @@
                                 <div class="item-content">
                                     <div class="wrap-vertical-nav">
                                         <ul>
-                                            <li class="menu-item"><a href="#" class="link-term">Contact Us</a></li>
+                                            <li class="menu-item"><a href="/contactus" class="link-term">Contact Us</a></li>
                                             <li class="menu-item"><a href="#" class="link-term">Returns</a></li>
                                             <li class="menu-item"><a href="#" class="link-term">Site Map</a></li>
                                             <li class="menu-item"><a href="#" class="link-term">Specials</a></li>
@@ -494,105 +444,50 @@
                 </div>
             </div>
 
-            <div class="wrap-back-link">
+
+
+            <div class="coppy-right-box">
                 <div class="container">
-                    <div class="back-link-box">
-                        <h3 class="backlink-title">Quick Links</h3>
-                        <div class="back-link-row">
-                            <ul class="list-back-link">
-                                <li><span class="row-title">Mobiles:</span></li>
-                                <li><a href="#" class="redirect-back-link" title="mobile">Mobiles</a></li>
-                                <li><a href="#" class="redirect-back-link" title="yphones">YPhones</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Gianee Mobiles GL">Gianee Mobiles
-                                        GL</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Mobiles Karbonn">Mobiles Karbonn</a>
+                    <div class="coppy-right-item item-left">
+                        <p class="coppy-right-text">Copyright © 2020 Surfside Media. All rights reserved</p>
+                    </div>
+                    <div class="coppy-right-item item-right">
+                        <div class="wrap-nav horizontal-nav">
+                            <ul>
+                                <li class="menu-item"><a href="about-us.html" class="link-term">About us</a></li>
+                                <li class="menu-item"><a href="privacy-policy.html" class="link-term">Privacy Policy</a>
                                 </li>
-                                <li><a href="#" class="redirect-back-link" title="Mobiles Viva">Mobiles Viva</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Mobiles Intex">Mobiles Intex</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Mobiles Micrumex">Mobiles Micrumex</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Mobiles Bsus">Mobiles Bsus</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Mobiles Samsyng">Mobiles Samsyng</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Mobiles Lenova">Mobiles Lenova</a>
-                                </li>
+                                <li class="menu-item"><a href="terms-conditions.html" class="link-term">Terms &
+                                        Conditions</a></li>
+                                <li class="menu-item"><a href="return-policy.html" class="link-term">Return Policy</a></li>
                             </ul>
-
-                            <ul class="list-back-link">
-                                <li><span class="row-title">Tablets:</span></li>
-                                <li><a href="#" class="redirect-back-link" title="Plesc YPads">Plesc YPads</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Samsyng Tablets">Samsyng Tablets</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Qindows Tablets">Qindows Tablets</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Calling Tablets">Calling Tablets</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Micrumex Tablets">Micrumex Tablets</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Lenova Tablets Bsus">Lenova Tablets
-                                        Bsus</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Tablets iBall">Tablets iBall</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Tablets Swipe">Tablets Swipe</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Tablets TVs, Audio">Tablets TVs,
-                                        Audio</a></li>
-                            </ul>
-
-                            <ul class="list-back-link">
-                                <li><span class="row-title">Fashion:</span></li>
-                                <li><a href="#" class="redirect-back-link" title="Sarees Silk">Sarees Silk</a></li>
-                                <li><a href="#" class="redirect-back-link" title="sarees Salwar">sarees Salwar</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Suits Lehengas">Suits Lehengas</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Biba Jewellery">Biba Jewellery</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Rings Earrings">Rings Earrings</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Diamond Rings">Diamond Rings</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Loose Diamond Shoes">Loose Diamond
-                                        Shoes</a></li>
-                                <li><a href="#" class="redirect-back-link" title="BootsMen Watches">BootsMen Watches</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Women Watches">Women Watches</a></li>
-                            </ul>
-
                         </div>
                     </div>
+                    <div class="clearfix"></div>
                 </div>
             </div>
-
         </div>
-
-        <div class="coppy-right-box">
-            <div class="container">
-                <div class="coppy-right-item item-left">
-                    <p class="coppy-right-text">Copyright © 2020 Surfside Media. All rights reserved</p>
-                </div>
-                <div class="coppy-right-item item-right">
-                    <div class="wrap-nav horizontal-nav">
-                        <ul>
-                            <li class="menu-item"><a href="about-us.html" class="link-term">About us</a></li>
-                            <li class="menu-item"><a href="privacy-policy.html" class="link-term">Privacy Policy</a>
-                            </li>
-                            <li class="menu-item"><a href="terms-conditions.html" class="link-term">Terms &
-                                    Conditions</a></li>
-                            <li class="menu-item"><a href="return-policy.html" class="link-term">Return Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
 </footer>
 
 <script src="{{asset('assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
+<script src="{{asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
+<script src="{{asset('assets/js/jquery.flexslider.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/js/chosen.jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.countdown.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.sticky.js')}}"></script>
 <script src="{{asset('assets/js/functions.js')}}"></script>
-@livewireScripts
-
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js" integrity="sha512-k6/Bkb8Fxf/c1Tkyl39yJwcOZ1P4cRrJu77p83zJjN2Z55prbFHxPs9vN7q3l3+tSMGPDdoH51AEU8Vgo1cgAA==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" integrity="sha512-GDey37RZAxFkpFeJorEUwNoIbkTwsyC736KNSYucu1WJWFK9qTdzYub8ATxktr6Dwke7nbFaioypzbDOQykoRg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js" integrity="sha512-EnXkkBUGl2gBm/EIZEgwWpQNavsnBbeMtjklwAa7jLj60mJk932aqzXFmdPKCG6ge/i8iOCK0Uwl1Qp+S0zowg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>@livewireScripts
+<script src="https://cdn.tiny.cloud/1/93m1fqy29mqrmvkuq9uiekfd98b1z16dfs711nn9l17u5h3e/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+@stack('scripts')
 <!--footer area-->
 </body>
 </html>

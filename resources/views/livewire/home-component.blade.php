@@ -130,7 +130,7 @@
                                      data-items="5" data-loop="false" data-nav="true" data-dots="false"
                                      data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"4"},"1200":{"items":"5"}}'>
                                     @php
-                                        $c_products=DB::table('products')->where('category_id',$category->id)->get()->take($no_of_products);
+                                        $c_products=\Illuminate\Support\Facades\DB::table('products')->where('category_id',$category->id)->get()->take($no_of_products);
                                     @endphp
 
                                     @foreach($c_products as $c_product)

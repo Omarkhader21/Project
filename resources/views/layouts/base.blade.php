@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/pc.png')}}">
     <link
         href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext"
         rel="stylesheet">
@@ -45,7 +45,7 @@
                         <ul>
                             <li class="menu-item">
                                 <a title="Hotline: (+123) 456 789" href="#"><span
-                                        class="icon label-before fa fa-mobile"></span>Hotline: (+123) 456 789</a>
+                                        class="icon label-before fa fa-mobile"></span>Hotline: (+962) 775966466</a>
                             </li>
                         </ul>
                     </div>
@@ -147,7 +147,7 @@
                 <div class="mid-section main-info-area">
 
                     <div class="wrap-logo-top left-section">
-                        <a href="/" class="link-to-home"><img src="{{asset('assets/images/logo-top-1.png')}}"
+                        <a href="/" class="link-to-home"><img src="{{asset('assets/images/pc.png')}}" width="100px" height="100px"
                                                                        alt="mercado"></a>
                     </div>
 
@@ -195,7 +195,7 @@
                                                                                     aria-hidden="true"></i></a>
                             </li>
                             <li class="menu-item">
-                                <a href="about-us.html" class="link-term mercado-item-title">About Us</a>
+                                <a href="/aboutus" class="link-term mercado-item-title">About Us</a>
                             </li>
                             <li class="menu-item">
                                 <a href="/shop" class="link-term mercado-item-title">Shop</a>
@@ -278,12 +278,11 @@
                                     <ul>
                                         <li>
                                             <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            <p class="contact-txt">45 Grand Central Terminal New York,NY 1017 United
-                                                State USA</p>
+                                            <p class="contact-txt">Jordan / Amman </p>
                                         </li>
                                         <li>
                                             <i class="fa fa-phone" aria-hidden="true"></i>
-                                            <p class="contact-txt">(+123) 456 789 - (+123) 666 888</p>
+                                            <p class="contact-txt">(+962) 775966466</p>
                                         </li>
                                         <li>
                                             <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -302,7 +301,7 @@
                             <div class="item-content">
                                 <div class="wrap-hotline-footer">
                                     <span class="desc">Call Us toll Free</span>
-                                    <b class="phone-number">(+123) 456 789 - (+123) 666 888</b>
+                                    <b class="phone-number">(+962) 775966466</b>
                                 </div>
                             </div>
                         </div>
@@ -329,12 +328,12 @@
                                 <div class="item-content">
                                     <div class="wrap-vertical-nav">
                                         <ul>
-                                            <li class="menu-item"><a href="#" class="link-term">My Account</a></li>
+                                            <li class="menu-item"><a href="{{route('login')}}" class="link-term">My Account</a></li>
                                             <li class="menu-item"><a href="#" class="link-term">Brands</a></li>
                                             <li class="menu-item"><a href="#" class="link-term">Gift Certificates</a>
                                             </li>
                                             <li class="menu-item"><a href="#" class="link-term">Affiliates</a></li>
-                                            <li class="menu-item"><a href="#" class="link-term">Wish list</a></li>
+                                            <li class="menu-item"><a href="{{route('product.wishlist')}}" class="link-term">Wish list</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -344,7 +343,7 @@
                                 <div class="item-content">
                                     <div class="wrap-vertical-nav">
                                         <ul>
-                                            <li class="menu-item"><a href="#" class="link-term">Contact Us</a></li>
+                                            <li class="menu-item"><a href="/contactus" class="link-term">Contact Us</a></li>
                                             <li class="menu-item"><a href="#" class="link-term">Returns</a></li>
                                             <li class="menu-item"><a href="#" class="link-term">Site Map</a></li>
                                             <li class="menu-item"><a href="#" class="link-term">Specials</a></li>
@@ -421,73 +420,7 @@
                 </div>
             </div>
 
-            <div class="wrap-back-link">
-                <div class="container">
-                    <div class="back-link-box">
-                        <h3 class="backlink-title">Quick Links</h3>
-                        <div class="back-link-row">
-                            <ul class="list-back-link">
-                                <li><span class="row-title">Mobiles:</span></li>
-                                <li><a href="#" class="redirect-back-link" title="mobile">Mobiles</a></li>
-                                <li><a href="#" class="redirect-back-link" title="yphones">YPhones</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Gianee Mobiles GL">Gianee Mobiles
-                                        GL</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Mobiles Karbonn">Mobiles Karbonn</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Mobiles Viva">Mobiles Viva</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Mobiles Intex">Mobiles Intex</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Mobiles Micrumex">Mobiles Micrumex</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Mobiles Bsus">Mobiles Bsus</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Mobiles Samsyng">Mobiles Samsyng</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Mobiles Lenova">Mobiles Lenova</a>
-                                </li>
-                            </ul>
 
-                            <ul class="list-back-link">
-                                <li><span class="row-title">Tablets:</span></li>
-                                <li><a href="#" class="redirect-back-link" title="Plesc YPads">Plesc YPads</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Samsyng Tablets">Samsyng Tablets</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Qindows Tablets">Qindows Tablets</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Calling Tablets">Calling Tablets</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Micrumex Tablets">Micrumex Tablets</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Lenova Tablets Bsus">Lenova Tablets
-                                        Bsus</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Tablets iBall">Tablets iBall</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Tablets Swipe">Tablets Swipe</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Tablets TVs, Audio">Tablets TVs,
-                                        Audio</a></li>
-                            </ul>
-
-                            <ul class="list-back-link">
-                                <li><span class="row-title">Fashion:</span></li>
-                                <li><a href="#" class="redirect-back-link" title="Sarees Silk">Sarees Silk</a></li>
-                                <li><a href="#" class="redirect-back-link" title="sarees Salwar">sarees Salwar</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Suits Lehengas">Suits Lehengas</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Biba Jewellery">Biba Jewellery</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Rings Earrings">Rings Earrings</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Diamond Rings">Diamond Rings</a></li>
-                                <li><a href="#" class="redirect-back-link" title="Loose Diamond Shoes">Loose Diamond
-                                        Shoes</a></li>
-                                <li><a href="#" class="redirect-back-link" title="BootsMen Watches">BootsMen Watches</a>
-                                </li>
-                                <li><a href="#" class="redirect-back-link" title="Women Watches">Women Watches</a></li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
 
         <div class="coppy-right-box">
             <div class="container">

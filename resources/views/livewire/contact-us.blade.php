@@ -5,7 +5,7 @@
 
         <div class="wrap-breadcrumb">
             <ul>
-                <li class="item-link"><a href="#" class="link">home</a></li>
+                <li class="item-link"><a href="/" class="link">home</a></li>
                 <li class="item-link"><span>Contact us</span></li>
             </ul>
         </div>
@@ -37,33 +37,36 @@
                     <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                         <div class="contact-box contact-info">
                             <div class="wrap-map">
-                                <div class="mercado-google-maps"
-                                     id="az-google-maps57341d9e51968"
-                                     data-hue=""
-                                     data-lightness="1"
-                                     data-map-style="2"
-                                     data-saturation="-100"
-                                     data-modify-coloring="false"
-                                     data-title_maps="Kute themes"
-                                     data-phone="088-465 9965 02"
-                                     data-email="kutethemes@gmail.com"
-                                     data-address="Z115 TP. Thai Nguyen"
-                                     data-longitude="-0.120850"
-                                     data-latitude="51.508742"
-                                     data-pin-icon=""
-                                     data-zoom="16"
-                                     data-map-type="ROADMAP"
-                                     data-map-height="263">
+                                <div class="mapouter">
+                                    <div class="gmap_canvas">
+                                        <iframe width="600" height="500" id="gmap_canvas"
+                                                src="https://maps.google.com/maps?q=amman&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                                frameborder="0" scrolling="no" marginheight="0"
+                                                marginwidth="0"></iframe>
+                                        <a href="https://putlocker-is.org"></a><br>
+                                        <style>.mapouter {
+                                                position: relative;
+                                                text-align: right;
+                                                height: 500px;
+                                                width: 600px;
+                                            }</style>
+                                        <a href="https://www.embedgooglemap.net">embed custom google map</a>
+                                        <style>.gmap_canvas {
+                                                overflow: hidden;
+                                                background: none !important;
+                                                height: 500px;
+                                                width: 600px;
+                                            }</style>
+                                    </div>
                                 </div>
                             </div>
                             <h2 class="box-title">Contact Detail</h2>
                             <div class="wrap-icon-box">
-
                                 <div class="icon-box-item">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                     <div class="right-info">
                                         <b>Email</b>
-                                        <p>Support1@Mercado.com</p>
+                                        <p>Omar.khaderj21@gmail.com</p>
                                     </div>
                                 </div>
 
@@ -71,7 +74,7 @@
                                     <i class="fa fa-phone" aria-hidden="true"></i>
                                     <div class="right-info">
                                         <b>Phone</b>
-                                        <p>0123-465-789-111</p>
+                                        <p>077-5966466</p>
                                     </div>
                                 </div>
 
@@ -79,7 +82,7 @@
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                     <div class="right-info">
                                         <b>Mail Office</b>
-                                        <p>Sed ut perspiciatis unde omnis<br/>Street Name, Los Angeles</p>
+                                        <p>Al-Yasmeen<br/>Jordan / Amman</p>
                                     </div>
                                 </div>
 

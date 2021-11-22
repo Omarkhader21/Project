@@ -26,6 +26,6 @@ class HomeComponent extends Component
 
 
 
-        return view('livewire.home-component', ['sliders' => $sliders, 'lproducts' => $lproducts, 'categories' => $categories, 'no_of_products' => $no_of_products,'no_of_products'=>$no_of_products,'sproducts'=>$sproducts,'sale'=>$sale])->layout('layouts.base');
+        return view('livewire.home-component', ['sliders' => $sliders, 'lproducts' => $lproducts, 'categories' => $categories, 'no_of_products' => $no_of_products,'sproducts'=>$sproducts,'sale'=>$sale])->layout('layouts.base');
     }
 }

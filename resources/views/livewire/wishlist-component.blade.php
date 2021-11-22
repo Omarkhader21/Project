@@ -23,11 +23,11 @@
             }
 
             .product-wish .fa:hover {
-                color: #ff7007;
+                color: #FF0000;
             }
 
             .fill-heart {
-                color: #ff7007 !important;
+                color: #FF0000 !important;
             }
         </style>
         <div class="row">
